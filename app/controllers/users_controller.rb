@@ -21,6 +21,8 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @button_text = "Submit"
+
   end
 
   def show
@@ -40,6 +42,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @button_text = "Save"
   end
 
   def update

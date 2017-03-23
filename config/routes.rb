@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :teams
   root 'application#hello'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
