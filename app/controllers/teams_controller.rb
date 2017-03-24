@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    @uteam = current_team.users
+    @team = Team.find(params[:id])
   end
 
   # GET /teams/new
@@ -69,7 +69,29 @@ class TeamsController < ApplicationController
     end
   end
 
-  
+  def add_user
+    @user = User.find(params[:user_id])
+    @team = Team.find(params[:id])
+    if @team.users.exists?(@user)
+      flash[:notice] = "user already in team"
+    else
+      @team.users << @user
+      @team.save
+      flash[:notice] = 'add user to team'
+      redirect_to @team
+    end
+
+  end
+
+  def delete_user
+    @user = User.find(params[:user_id])
+    @team = Team.find(params[:id])
+    if @team.users.exists?(@user)
+      @team.users.delete(@user)
+      redirect_to @team
+    end
+
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

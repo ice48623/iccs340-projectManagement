@@ -8,9 +8,9 @@
   </thead>
 
   <tbody>
-    <% @uteam.each do |team| %>
+    <% @team.users.each do |user| %>
       <tr>
-        <td><%= team.name %></td>
+        <td><%= user.name %></td>
       </tr>
     <% end %>
   </tbody>
