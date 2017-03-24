@@ -75,7 +75,7 @@ class TeamsController < ApplicationController
 
   def add_user
     @user = User.find(params[:user_id])
-    @team = Team.find(params[:id])
+    @team = Team.find(params[:team_id])
     if @team.users.exists?(@user)
       flash[:notice] = "user already in team"
     else
