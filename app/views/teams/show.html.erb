@@ -10,7 +10,7 @@
   <%= @team.description %>
 </p>
 
-<%= link_to "leave", delete_user_team_path(team: @team, :user => @user), :method => :put %>
+<%= link_to "leave", delete_user_team_path(team: @team, :user => @user, :team_id => @team.id), :method => :put %>
 
 <%= @team.users.count %>
 <%= render 'userInTeam' %>

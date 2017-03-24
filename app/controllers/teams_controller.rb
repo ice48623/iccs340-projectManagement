@@ -92,6 +92,9 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:team_id])
     if @team.users.exists?(@user)
       @team.users.delete(@user)
+      if (@team.users.exists? == false)
+        @team.destroy
+      end
       redirect_to teams_path
     end
   end
