@@ -3,9 +3,11 @@
 one:
   name: MyText
   description: MyText
+  status: MyText
   project: one
 
 two:
   name: MyText
   description: MyText
+  status: MyText
   project: two

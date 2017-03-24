@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324145304) do
+ActiveRecord::Schema.define(version: 20170324145607) do
 
   create_table "projects", force: :cascade do |t|
     t.text     "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170324145304) do
   create_table "tasks", force: :cascade do |t|
     t.text     "name"
     t.text     "description"
+    t.text     "status"
     t.integer  "project_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
