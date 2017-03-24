@@ -15,10 +15,12 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @status = 'pending'
   end
 
   # GET /tasks/1/edit
   def edit
+    @status = current_task.status
   end
 
   # POST /tasks
@@ -59,6 +61,10 @@ class TasksController < ApplicationController
       format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def current_task
+    @task = Task.find(params[:id])
   end
 
   private
