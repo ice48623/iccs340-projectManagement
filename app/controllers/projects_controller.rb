@@ -4,7 +4,15 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    # @projects = Project.all
+    @teams = []
+    @allTeams = current_user.teams
+    @allTeams.each do |team|
+      if (!team.project.nil?)
+        @teams.push(team)
+      end
+    end
+    @user = current_user
   end
 
   # GET /projects/1
