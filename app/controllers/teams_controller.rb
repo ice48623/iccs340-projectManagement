@@ -8,13 +8,16 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    # @teams = Team.all
+    @teams = current_user.teams
+    @user = current_user
   end
 
   # GET /teams/1
   # GET /teams/1.json
   def show
     @team = Team.find(params[:id])
+    @user = current_user
   end
 
   # GET /teams/new
@@ -33,7 +36,8 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
-
+    @user = current_user
+    @team.users << @user
     respond_to do |format|
       if @team.save
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
@@ -84,13 +88,12 @@ class TeamsController < ApplicationController
   end
 
   def delete_user
-    @user = User.find(params[:user_id])
-    @team = Team.find(params[:id])
+    @user = current_user
+    @team = Team.find(params[:team_id])
     if @team.users.exists?(@user)
       @team.users.delete(@user)
-      redirect_to @team
+      redirect_to teams_path
     end
-
   end
 
   private

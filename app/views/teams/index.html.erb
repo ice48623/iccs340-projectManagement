@@ -14,11 +14,13 @@
   <tbody>
     <% @teams.each do |team| %>
       <tr>
+        <td><%= team.id %></td>
         <td><%= team.name %></td>
         <td><%= team.description %></td>
         <td><%= link_to 'Show', team %></td>
         <td><%= link_to 'Edit', edit_team_path(team) %></td>
         <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "leave", delete_user_team_path(id: team.id, user: @user, :team_id => team.id), :method => :put %></td>
       </tr>
     <% end %>
   </tbody>
