@@ -24,13 +24,13 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
-    @user = User.all
+    @users = User.all
   end
 
   # GET /teams/1/edit
   def edit
     @team = Team.find(params[:id])
-    @user = User.all
+    @users = User.all.to_json.to_s
   end
 
   # POST /teams
