@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :tasks do
-    resources :task_comments
-  end
+  resources :task_comments
+  resources :tasks
   resources :projects
   resources :teams
   root 'application#hello'
