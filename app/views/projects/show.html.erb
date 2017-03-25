@@ -15,6 +15,7 @@
   <%= @project.team %>
 </p>
 
+<%= link_to 'create task', new_task_path %>
 <%= render 'tasks' %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

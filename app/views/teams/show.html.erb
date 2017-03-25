@@ -15,5 +15,15 @@
 <%= @team.users.count %>
 <%= render 'userInTeam' %>
 
+<%= link_to 'create project', new_project_path %>
+
+<br />
+
+<%= @project.name %>
+<%= @project.description %>
+<%= link_to 'view', @project %>
+
+<br />
+
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

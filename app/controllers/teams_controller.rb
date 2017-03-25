@@ -18,6 +18,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     @user = current_user
+    @project = current_team.project
   end
 
   # GET /teams/new
