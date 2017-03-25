@@ -1,5 +1,6 @@
 class TcommentsController < ApplicationController
   before_action :set_tcomment, only: [:show, :edit, :update, :destroy]
+  before_filter :require_login
 
   # GET /tcomments
   # GET /tcomments.json
@@ -76,5 +77,11 @@ class TcommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tcomment_params
       params.require(:tcomment).permit(:content, :user_id, :task_id)
+    end
+
+    def require_login
+      unless current_user
+        redirect_to login_url
+      end
     end
 end

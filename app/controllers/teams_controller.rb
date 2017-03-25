@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_filter :require_login
 
   def current_team
     Team.find(params[:id])
@@ -109,6 +110,12 @@ class TeamsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
       params.require(:team).permit(:name, :description)
+    end
+
+    def require_login
+      unless current_user
+        redirect_to login_url
+      end
     end
 
 end

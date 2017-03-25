@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_filter :require_login
   # GET /tasks
   # GET /tasks.json
   def index
@@ -78,5 +78,11 @@ class TasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:name, :description, :status, :project_id)
+    end
+
+    def require_login
+      unless current_user
+        redirect_to login_url
+      end
     end
 end
