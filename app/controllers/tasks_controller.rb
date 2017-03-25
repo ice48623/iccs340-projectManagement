@@ -18,11 +18,21 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @status = 'pending'
+    @project_id = params[:project_id]
+    @read_only = true
+    if @project_id.nil?
+      @read_only = false
+    end
   end
 
   # GET /tasks/1/edit
   def edit
     @status = current_task.status
+    @project_id = current_task.project.id
+    @read_only = true
+    if @project_id.nil?
+      @read_only = false
+    end
   end
 
   # POST /tasks

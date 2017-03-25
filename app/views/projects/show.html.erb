@@ -15,7 +15,8 @@
   <%= @project.team.name %>
 </p>
 
-<%= link_to 'create task', new_task_path %>
+<%= link_to 'create task', {:controller => 'tasks', :action => 'new', :project_id => @project.id} %>
+
 <%= render 'tasks' %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
