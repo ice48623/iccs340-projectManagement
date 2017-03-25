@@ -18,10 +18,13 @@
 <%= link_to 'create project', new_project_path %>
 
 <br />
-
-<%= @project.name %>
-<%= @project.description %>
-<%= link_to 'view', @project %>
+<% if @project.nil? %>
+  <p>Currently no project</p>
+<% else %>
+  <%= @project.name %>
+  <%= @project.description %>
+  <%= link_to 'view', @project %>
+<% end %>
 
 <br />
 
