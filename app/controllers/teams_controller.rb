@@ -25,7 +25,7 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
-    @users = User.all
+    @users = User.where.not(id: current_user.id).to_json.to_s
   end
 
   # GET /teams/1/edit
@@ -41,6 +41,13 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     @user = current_user
     @team.users << @user
+
+    @members = params[:members].split(",")
+    @members.each do |id|
+      @member = User.where(id: id)
+      @team.users << @member
+    end
+
     respond_to do |format|
       if @team.save
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
