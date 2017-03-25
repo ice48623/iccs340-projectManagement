@@ -29,6 +29,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @allTeams = @user.teams
+    @project_count = 0
+    @allTeams.each do |team|
+      if (!team.project.nil?)
+        @project_count += 1
+      end
+    end
   end
 
   def create
