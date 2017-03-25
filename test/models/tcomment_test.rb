@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TaskCommentTest < ActiveSupport::TestCase
+class TcommentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

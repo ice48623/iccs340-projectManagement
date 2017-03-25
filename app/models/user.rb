@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   has_and_belongs_to_many :teams
+  has_many :tcomments
   # has_many :teams_users
   # has_many :teams, through: :teams_users
   # has_many :projects, through: :teams

@@ -17,8 +17,10 @@
 
 <p>
   <strong>Project:</strong>
-  <%= @task.project %>
+  <%= @task.project.name %>
 </p>
+
+<%= render 'comments' %>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

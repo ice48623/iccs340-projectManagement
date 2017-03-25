@@ -12,7 +12,7 @@
 
 <%= link_to "leave", delete_user_team_path(team: @team, :user => @user, :team_id => @team.id), :method => :put %>
 
-<%= @team.users.count %>
+<h2>All users in team</h2>
 <%= render 'userInTeam' %>
 
 <%= link_to 'create project', new_project_path %>
