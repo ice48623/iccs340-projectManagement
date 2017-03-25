@@ -23,8 +23,9 @@
 
   <div class="field">
     <%= f.label :team_id %>
-    <%= f.text_field :team_id %>
+    <%= f.text_field :team_id, :value => @team_id, :readonly => @read_only %>
   </div>
+
 
   <div class="actions">
     <%= f.submit %>

@@ -15,7 +15,7 @@
 <h2>All users in team</h2>
 <%= render 'userInTeam' %>
 
-<%= link_to 'create project', new_project_path %>
+<%= link_to 'create project', {:controller => "projects", :action => 'new', :team_id => @team.id} %>
 
 <br />
 <% if @project.nil? %>
