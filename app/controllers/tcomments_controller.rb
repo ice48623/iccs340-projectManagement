@@ -4,7 +4,8 @@ class TcommentsController < ApplicationController
   # GET /tcomments
   # GET /tcomments.json
   def index
-    @tcomments = Tcomment.all
+    # @tcomments = Tcomment.all
+    @tcomments = Task.find(params[:task_id]).tcomments
   end
 
   # GET /tcomments/1

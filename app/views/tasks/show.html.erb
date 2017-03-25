@@ -20,7 +20,11 @@
   <%= @task.project.name %>
 </p>
 
+<h2>All Comments</h2>
 <%= render 'comments' %>
+<br />
 
+<%= link_to 'New Comment', new_task_tcomment_path(:task_id => @task.id) %>
+<br />
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :task_id %>
-    <%= f.text_field :task_id %>
+    <%= f.text_field :task_id, :value => @task.id, :readonly => true %>
   </div>
 
   <div class="actions">
