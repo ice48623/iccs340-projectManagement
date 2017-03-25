@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @tasks = current_project.tasks
   end
 
   # GET /projects/new
@@ -67,6 +68,10 @@ class ProjectsController < ApplicationController
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def current_project
+    Project.find(params[:id])
   end
 
   private
