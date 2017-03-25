@@ -31,7 +31,8 @@ class TeamsController < ApplicationController
   # GET /teams/1/edit
   def edit
     @team = Team.find(params[:id])
-    @users = User.all.to_json.to_s
+    # @users = User.all.to_json.to_s
+    @users = User.where.not(id: current_user.id).to_json.to_s
   end
 
   # POST /teams
