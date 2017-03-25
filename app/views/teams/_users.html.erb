@@ -1,6 +1,5 @@
-<p><%= @users %></p>
 <select id="user_select" class="js-tags input-lg form-control"></select>
-<input type="hidden" id="type" name="type"/>
+<input type="hidden" id="members" name="members"/>
 
 <script>
   var test = $('.js-tags');
@@ -24,11 +23,11 @@
     tags_array = $(".js-tags").val();
     if (tags_array == null) {
         tags_array = []
-        $("#tags").val("");
+        $("#members").val("");
     } else {
         console.log(tags_array)
         console.log(tags_array.toString());
-        $("#tags").val(tags_array.toString());
+        $("#members").val(tags_array.toString());
     }
   });
 </script>
