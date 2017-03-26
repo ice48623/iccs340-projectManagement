@@ -1,7 +1,6 @@
 <select id="user_select" class="js-tags input-lg form-control">
   <%= @user_in_team.each do |user| %>
-    <option selected="selected"><%= user.name %></option>
-
+    <option value="<%= user.id %>" selected="selected"><%= user.name %></option>
   <% end%>
 </select>
 <input type="hidden" id="members" name="members"/>
@@ -31,6 +30,7 @@
         $("#members").val("");
     } else {
         $("#members").val(tags_array.toString());
+        console.log($("#members").val());
     }
   });
 </script>

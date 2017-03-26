@@ -26,6 +26,7 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
     @users = User.where.not(id: current_user.id).to_json.to_s
+    @user_in_team = []
   end
 
   # GET /teams/1/edit
@@ -33,7 +34,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     # @users = User.all.to_json.to_s
     @users = User.where.not(id: current_user.id).to_json.to_s
-    @user_in_team = current_team.users
+    @user_in_team = current_team.users.where.not(id: current_user.id)
   end
 
   # POST /teams
@@ -63,6 +64,8 @@ class TeamsController < ApplicationController
   # PATCH/PUT /teams/1
   # PATCH/PUT /teams/1.json
   def update
+    update_team_user
+
     respond_to do |format|
       if @team.update(team_params)
         format.html { redirect_to @team, notice: 'Team was successfully updated.' }
@@ -124,6 +127,25 @@ class TeamsController < ApplicationController
     def require_login
       unless current_user
         redirect_to login_url
+      end
+    end
+
+    def update_team_user
+      @team = current_team
+      @team_user = @team.users
+
+      @team_user.each do |user|
+        if (user != current_user)
+          @team_user.delete(user)
+        end
+      end
+
+      @members = params[:members].split(",")
+      @members.each do |id|
+        @member = User.where(id: id)
+        if (@member != current_user)
+          @team.users << @member
+        end
       end
     end
 
