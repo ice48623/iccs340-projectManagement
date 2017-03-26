@@ -33,6 +33,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     # @users = User.all.to_json.to_s
     @users = User.where.not(id: current_user.id).to_json.to_s
+    @user_in_team = current_team.users.to_json.to_s
   end
 
   # POST /teams
