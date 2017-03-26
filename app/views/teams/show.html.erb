@@ -22,21 +22,21 @@
         <% if @project.nil? %>
           <p>Currently no project</p>
         <% else %>
-        <table class="table table-striped center">
-          <thead>
-            <th>Name</th>
-            <th>Description</th>
-            <th></th>
-          </thead>
+          <table class="table table-striped center">
+            <thead>
+              <th>Name</th>
+              <th>Description</th>
+              <th></th>
+            </thead>
 
-          <tbody>
-            <tr>
-              <td><%= @project.name %></td>
-              <td><%= @project.description %></td>
-              <td><%= link_to 'view', @project, :class=>"btn btn-info button" %></td>
-            </tr>
-          </tbody>
-        </table>
+            <tbody>
+              <tr>
+                <td><%= @project.name %></td>
+                <td><%= @project.description %></td>
+                <td><%= link_to 'view', @project, :class=>"btn btn-info button" %></td>
+              </tr>
+            </tbody>
+          </table>
         <% end %>
       </div>
 
@@ -49,6 +49,6 @@
   </div>
 
   <%= link_to 'Back', teams_path, :class=>"btn btn-warning button" %>
-  <%= link_to 'create project', new_project_path, :class=>"btn btn-success button" %>
+  <%= link_to 'create project', {:controller => "projects", :action => 'new', :team_id => @team.id}, :class=>"btn btn-success button" %>
 
 </div>

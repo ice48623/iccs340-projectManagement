@@ -23,12 +23,18 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @button_text = "Submit"
-
   end
 
   def show
     @user = User.find(params[:id])
     @allTeams = @user.teams
+    @team_count = @allTeams.count
+    @project_count = 0
+    @allTeams.each do |team|
+      if (!team.project.nil?)
+        @project_count += 1
+      end
+    end
   end
 
   def create

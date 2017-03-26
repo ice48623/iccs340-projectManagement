@@ -25,10 +25,20 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @team_id = params[:team_id]
+    @read_only = true
+    if @team_id.nil?
+      @read_only = false
+    end
   end
 
   # GET /projects/1/edit
   def edit
+    @team_id = current_project.team.id
+    @read_only = true
+    if @team_id.nil?
+      @read_only = false
+    end
   end
 
   # POST /projects
