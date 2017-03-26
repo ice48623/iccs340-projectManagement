@@ -1,22 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="page_content">
+  <p id="notice"><%= notice %></p>
+  <div class="header">
+    <div class="sub_header">
+      <div class="name">
+        <h1 class="title_name"><%= @project.name %></h1>
+      </div>
+      <div class="button_header">
+        <%= link_to 'Edit', edit_project_path(@project), :class=>"btn btn-warning button" %>
+      </div>
+    </div>
+    <h4 class="description"><%= @project.description %></h4>
+    <h4>
+      <strong>Team:</strong>
+      <%= @project.team.name %>
+    </h4>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+  <%= render 'tasks' %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+  <%= link_to 'Back', projects_path, :class=>"btn btn-warning button" %>
+  <%= link_to 'create task', new_task_path, :class=>"btn btn-primary button" %>
 
-<p>
-  <strong>Team:</strong>
-  <%= @project.team.name %>
-</p>
 
-<%= link_to 'create task', new_task_path %>
-<%= render 'tasks' %>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+</div>

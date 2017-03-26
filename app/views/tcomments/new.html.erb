@@ -1,5 +1,8 @@
-<h1>New Tcomment</h1>
+<div class="new_comment page_content">
+  <h1>New Tcomment</h1>
 
-<%= render 'form', tcomment: @tcomment %>
+  <%= render 'form', tcomment: @tcomment %>
 
-<%= link_to 'Back', task_tcomments_path %>
+  <%= link_to 'Back', task_tcomments_path, :class=>"btn btn-warning button" %>
+
+</div>

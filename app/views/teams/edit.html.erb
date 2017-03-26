@@ -1,5 +1,10 @@
-<h1>Editing Team</h1>
+<div class="page_content">
+  <h1>Editing Team</h1>
 
-<%= render 'form', team: @team %>
-<%= link_to 'Show', @team %> |
-<%= link_to 'Back', teams_path %>
+  <%= render 'form', team: @team %>
+
+  <%= link_to 'Back', teams_path, :class=>"btn btn-warning button" %>
+  <%= link_to 'Show', @team, :class=>"btn btn-info button"%>
+
+
+</div>

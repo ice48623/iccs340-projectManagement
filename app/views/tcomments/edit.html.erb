@@ -1,6 +1,9 @@
-<h1>Editing Tcomment</h1>
+<div class="edit_comment page_content">
+  <h1>Editing Tcomment</h1>
 
-<%= render 'form', tcomment: @tcomment %>
+  <%= render 'form', tcomment: @tcomment %>
 
-<%= link_to 'Show', task_tcomment_path(@task, @tcomment) %> |
-<%= link_to 'Back', task_tcomments_path %>
+  <%= link_to 'Back', task_tcomments_path, :class=>"btn btn-warning button" %>
+  <%= link_to 'Show', task_tcomment_path(@task, @tcomment), :class=>"btn btn-info button" %>
+
+</div>

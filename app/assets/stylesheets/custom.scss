@@ -1,6 +1,49 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* team index */
+.btn {
+  font-family: 'Dosis', sans-serif !important;
+}
+.team_index {
+  font-family: 'Dosis', sans-serif;
+  max-width: 85%;
+}
+
+/* show team */
+
+.team_info {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.show_team {
+  font-family: 'Dosis', sans-serif !important;
+}
+
+.name{
+  float:left;
+}
+
+.sub_header{
+  height: 60px;
+  margin: auto;
+}
+
+.button_header {
+  margin-top: 10px;
+  margin-left: 20px;
+  float: left;
+}
+
+.title_name, .description {
+  margin: 0 !important;
+}
+
+.title_name {
+  font-size: 35pt;
+}
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
@@ -26,32 +69,58 @@ textarea {
   }
 }
 
+.container {
+  font-family: 'Dosis', sans-serif !important;
+}
+
+th {
+  text-align: center;
+}
+
+td, th {
+  font-family: 'Dosis', sans-serif;
+  font-size: 12pt;
+}
+
+.button {
+  text-decoration: none !important;
+  color: white !important;
+  font-family: 'Dosis', sans-serif;
+  margin: 3px !important;
+}
+
+.page_content {
+  max-width: 85%;
+  margin: auto;
+}
+
+
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
+// h1, h2, h3, h4, h5, h6 {
+//   line-height: 1;
+// }
+//
+// h1 {
+//   font-size: 3em;
+//   letter-spacing: -2px;
+//   margin-bottom: 30px;
+//   text-align: center;
+// }
+//
+// h2 {
+//   font-size: 1.2em;
+//   letter-spacing: -1px;
+//   margin-bottom: 30px;
+//   text-align: center;
+//   font-weight: normal;
+//   color: $gray-light;
+// }
 
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
+// p {
+//   font-size: 1.1em;
+//   line-height: 1.7em;
+// }
 
 /* header */
 

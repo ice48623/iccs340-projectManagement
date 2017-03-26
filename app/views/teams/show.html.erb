@@ -1,32 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="show_team page_content">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @team.name %>
-</p>
+  <div class="header">
+    <div class="sub_header">
+      <div class="name">
+        <h1 class="title_name"><%= @team.name %></h1>
+      </div>
+      <div class="button_header">
+        <%= link_to "leave", delete_user_team_path(team: @team, :user => @user, :team_id => @team.id), :method => :put, :class=>"btn btn-danger button" %>
+        <%= link_to 'Edit', edit_team_path(@team), :class=>"btn btn-warning button" %>
+      </div>
+    </div>
+    <h4 class="description"><%= @team.description %></h4>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @team.description %>
-</p>
 
-<%= link_to "leave", delete_user_team_path(team: @team, :user => @user, :team_id => @team.id), :method => :put %>
+  <div class="team_info">
+    <div class="row">
+      <div class="projects col-md-8">
+        <h2>Current Projects</h2>
+        <% if @project.nil? %>
+          <p>Currently no project</p>
+        <% else %>
+        <table class="table table-striped center">
+          <thead>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+          </thead>
 
-<h2>All users in team</h2>
-<%= render 'userInTeam' %>
+          <tbody>
+            <tr>
+              <td><%= @project.name %></td>
+              <td><%= @project.description %></td>
+              <td><%= link_to 'view', @project, :class=>"btn btn-info button" %></td>
+            </tr>
+          </tbody>
+        </table>
+        <% end %>
+      </div>
 
-<%= link_to 'create project', new_project_path %>
+      <div class="col-md-4">
+        <div><%= render 'userInTeam' %></div>
+      </div>
 
-<br />
-<% if @project.nil? %>
-  <p>Currently no project</p>
-<% else %>
-  <%= @project.name %>
-  <%= @project.description %>
-  <%= link_to 'view', @project %>
-<% end %>
+    </div>
 
-<br />
+  </div>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+  <%= link_to 'Back', teams_path, :class=>"btn btn-warning button" %>
+  <%= link_to 'create project', new_project_path, :class=>"btn btn-success button" %>
+
+</div>

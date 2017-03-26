@@ -1,17 +1,39 @@
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<style>
+  th {
+    text-align: center;
+  }
 
-  <tbody>
+  .title {
+    font-size: 12pt;
+  }
+
+  p {
+    font-family: 'Dosis', sans-serif;
+  }
+
+  .panel-body {
+    margin: 20px !important;
+    padding: 0 !important;
+  }
+
+  .user_team {
+    margin-top: 15%;
+  }
+
+</style>
+
+<div class="user_team">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">All users in team</h3>
+    </div>
+
     <% @team.users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-      </tr>
+      <div class="panel-body">
+        <%= user.name %>
+      </div>
+
     <% end %>
-  </tbody>
-</table>
+
+  </div>
+</div>

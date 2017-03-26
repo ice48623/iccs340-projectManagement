@@ -1,8 +1,14 @@
+<style>
+  .option_path {
+    font-family: 'Dosis', sans-serif;
+    font-size: 13pt;
+  }
+</style>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to "Project Management", '#', id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right option_path">
         <% if logged_in? %>
           <li><%= link_to "Teams", teams_path %></li>
           <li><%= link_to "Projects", projects_path %></li>

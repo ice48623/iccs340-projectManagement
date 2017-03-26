@@ -1,6 +1,9 @@
-<h1>Editing Project</h1>
+<div class="page_content">
+  <h1>Editing Project</h1>
 
-<%= render 'form', project: @project %>
+  <%= render 'form', project: @project %>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+  <%= link_to 'Back', projects_path, :class=>"btn btn-warning button" %>
+  <%= link_to 'Show', @project, :class=>"btn btn-info button" %> 
+
+</div>
