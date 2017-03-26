@@ -4,7 +4,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    redirect_to(current_user)
+    # @tasks = Task.all
   end
 
   # GET /tasks/1

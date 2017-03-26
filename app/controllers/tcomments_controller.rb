@@ -6,7 +6,8 @@ class TcommentsController < ApplicationController
   # GET /tcomments.json
   def index
     # @tcomments = Tcomment.all
-    @tcomments = Task.find(params[:task_id]).tcomments
+    # @tcomments = Task.find(params[:task_id]).tcomments
+    redirect_to(current_user)
   end
 
   # GET /tcomments/1
