@@ -19,11 +19,10 @@ class TasksController < ApplicationController
     @task = Task.new
     @status = 'pending'
     @project_id = params[:project_id]
-    @tasks = ['pending', 'in-progess', 'testing', 'complete']
+    @tasks = ['pending']
     @read_only = true
     if @project_id.nil?
       @read_only = false
-      @tasks = ['pending']
     end
   end
 
@@ -35,6 +34,7 @@ class TasksController < ApplicationController
     if @project_id.nil?
       @read_only = false
     end
+    @tasks = ['pending', 'in-progess', 'testing', 'complete']
   end
 
   # POST /tasks
