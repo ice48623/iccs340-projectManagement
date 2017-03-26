@@ -1,6 +1,6 @@
 class Team < ApplicationRecord
-  # has_many :teams_users
-  # has_many :users, through: :teams_users
+  # validates :name, presence: true
+  # validates :description, presence: true
   has_and_belongs_to_many :users
   has_one :project
 end

@@ -58,7 +58,8 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        flash[:success] = "Team was successfully created."
+        format.html { redirect_to @team }
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }
@@ -74,7 +75,8 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.update(team_params)
-        format.html { redirect_to @team, notice: 'Team was successfully updated.' }
+        flash[:success] = "Team was successfully updated."
+        format.html { redirect_to @team }
         format.json { render :show, status: :ok, location: @team }
       else
         format.html { render :edit }
@@ -88,7 +90,8 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     respond_to do |format|
-      format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
+      flash[:success] = "Team was successfully destroyed."
+      format.html { redirect_to teams_url }
       format.json { head :no_content }
     end
   end

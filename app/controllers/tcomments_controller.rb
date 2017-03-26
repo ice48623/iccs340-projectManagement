@@ -36,7 +36,8 @@ class TcommentsController < ApplicationController
 
     respond_to do |format|
       if @tcomment.save
-        format.html { redirect_to task_tcomment_path(:id => @tcomment.id), notice: 'Tcomment was successfully created.' }
+        flash[:success] = "Comment was successfully created."
+        format.html { redirect_to task_tcomment_path(:id => @tcomment.id) }
         format.json { render :show, status: :created, location: @tcomment }
       else
         format.html { render :new }
@@ -50,7 +51,8 @@ class TcommentsController < ApplicationController
   def update
     respond_to do |format|
       if @tcomment.update(tcomment_params)
-        format.html { redirect_to task_tcomment_path(:id => @tcomment.id), notice: 'Tcomment was successfully updated.' }
+        flash[:success] = "Comment was successfully updated."
+        format.html { redirect_to task_tcomment_path(:id => @tcomment.id) }
         format.json { render :show, status: :ok, location: @tcomment }
       else
         format.html { render :edit }
@@ -64,7 +66,8 @@ class TcommentsController < ApplicationController
   def destroy
     @tcomment.destroy
     respond_to do |format|
-      format.html { redirect_to task_tcomments_url, notice: 'Tcomment was successfully destroyed.' }
+      flash[:success] = "Comment was successfully destroyed."
+      format.html { redirect_to task_tcomments_url }
       format.json { head :no_content }
     end
   end
