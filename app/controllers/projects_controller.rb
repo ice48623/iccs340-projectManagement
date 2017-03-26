@@ -31,14 +31,6 @@ class ProjectsController < ApplicationController
       @read_only = false
     end
 
-    @teams_available = [].to_json.to_s
-    @allTeams = current_user.teams
-    @allTeams.each do |team|
-      if (!team.project.nil?)
-        @teams_available.push(team)
-      end
-    end
-
   end
 
   # GET /projects/1/edit

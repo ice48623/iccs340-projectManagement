@@ -24,7 +24,7 @@
 
     <div class="field">
       <%= f.label :status %>
-      <%= f.select :status, ['pending', 'in-progess', 'testing', 'complete'], :selected => @status %>
+      <%= f.select :status, @tasks, :selected => @status %>
     </div>
 
     <div class="field">
