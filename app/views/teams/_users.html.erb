@@ -1,5 +1,8 @@
 <select id="user_select" class="js-tags input-lg form-control">
+  <%= @user_in_team.each do |user| %>
+    <option selected="selected"><%= user.name %></option>
 
+  <% end%>
 </select>
 <input type="hidden" id="members" name="members"/>
 
