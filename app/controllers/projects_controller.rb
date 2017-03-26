@@ -39,7 +39,6 @@ class ProjectsController < ApplicationController
       end
     end
     @teams_available = @t.to_json.to_s
-
   end
 
   # GET /projects/1/edit
