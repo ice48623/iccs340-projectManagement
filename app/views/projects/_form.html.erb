@@ -25,7 +25,10 @@
 
     <div class="field">
       <%= f.label :team_id %>
-      <%= f.text_field :team_id, :value => @team_id, :readonly => @read_only %>
+      <select id="team_select" class="js-tags input-lg form-control">
+        <option value="3620194" selected="selected">Select Team</option>
+      </select>
+      <input type="hidden" id="team_id" name="team_id"/>
     </div>
 
     <div class="actions">
@@ -34,3 +37,33 @@
   <% end %>
 
 </div>
+
+<script>
+  var test = $('.js-tags');
+  var teams = JSON.parse(<%= @teams_available.to_json.to_s.html_safe %>);
+  var new_data = $.map(teams, function (obj) {
+    obj.text = obj.text || obj.name; // replace name with the property used for the text
+    return obj;
+  });
+
+  console.log(new_data);
+
+  $(test).select2({
+    placeholder: "Team name",
+    data: new_data
+  });
+
+  $("#team_select").on("change", function (e) {
+    e.preventDefault();
+    tags_val = $(".js-tags").select2('data')[0].id;
+
+    if (tags_val == null) {
+        tags_val = ""
+        $("#team_id").val("");
+        console.log("null")
+    } else {
+        $("#team_id").val(tags_val.toString());
+        console.log($("#team_id").val());
+    }
+  });
+</script>

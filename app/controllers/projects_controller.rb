@@ -31,13 +31,14 @@ class ProjectsController < ApplicationController
       @read_only = false
     end
 
-    @teams_available = [].to_json.to_s
+    @t = []
     @allTeams = current_user.teams
     @allTeams.each do |team|
-      if (!team.project.nil?)
-        @teams_available.push(team)
+      if (team.project.nil?)
+        @t.push(team)
       end
     end
+    @teams_available = @t.to_json.to_s
 
   end
 
@@ -102,7 +103,8 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :team_id)
+      @team_id = params[:team_id]
+      params.require(:project).permit(:name, :description, @team_id)
     end
 
     def require_login
