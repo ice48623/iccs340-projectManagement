@@ -15,7 +15,7 @@
   </div>
 
 
-  <div class="team_info">
+  <div class="info">
     <div class="row">
       <div class="projects col-md-8">
         <h2>Current Projects</h2>
@@ -49,6 +49,6 @@
   </div>
 
   <%= link_to 'Back', teams_path, :class=>"btn btn-warning button" %>
-  <%= link_to 'create project', {:controller => "projects", :action => 'new', :team_id => @team.id}, :class=>"btn btn-success button" %>
+  <%= link_to 'create project', {:controller => "projects", :action => 'new', :team_id => @team.id}, :class=>"btn btn-primary button" %>
 
 </div>

@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* login page*/
+#to_signUp {
+  color: #0070ba;
+}
+
 /* team index */
 .btn {
   font-family: 'Dosis', sans-serif !important;
@@ -12,7 +17,7 @@
 
 /* show team */
 
-.team_info {
+.info {
   margin-top: 30px;
   margin-bottom: 30px;
 }
