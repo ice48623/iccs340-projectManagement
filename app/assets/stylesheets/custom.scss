@@ -49,6 +49,14 @@
   font-size: 35pt;
 }
 
+.display-none {
+  display: none;
+}
+
+.display-visible {
+  display: inline;
+}
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;

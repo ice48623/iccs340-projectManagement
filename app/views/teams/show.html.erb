@@ -49,6 +49,6 @@
   </div>
 
   <%= link_to 'Back', teams_path, :class=>"btn btn-warning button" %>
-  <%= link_to 'create project', {:controller => "projects", :action => 'new', :team_id => @team.id}, :class=>"btn btn-primary button" %>
+  <%= link_to 'create project', {:controller => "projects", :action => 'new', :team_id => @team.id}, :class=>@display %>
 
 </div>

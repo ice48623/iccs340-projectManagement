@@ -20,6 +20,12 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @user = current_user
     @project = current_team.project
+
+    @display = "display-none"
+    if (current_team.project.nil?)
+      @display = "btn btn-primary button"
+    end
+
   end
 
   # GET /teams/new
