@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20170325071905) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "projects", force: :cascade do |t|
     t.text     "name"
     t.text     "description"
     t.integer  "team_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["team_id"], name: "index_projects_on_team_id"
+    t.index ["team_id"], name: "index_projects_on_team_id", using: :btree
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170325071905) do
     t.integer  "project_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["project_id"], name: "index_tasks_on_project_id"
+    t.index ["project_id"], name: "index_tasks_on_project_id", using: :btree
   end
 
   create_table "tcomments", force: :cascade do |t|
@@ -37,8 +40,8 @@ ActiveRecord::Schema.define(version: 20170325071905) do
     t.integer  "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["task_id"], name: "index_tcomments_on_task_id"
-    t.index ["user_id"], name: "index_tcomments_on_user_id"
+    t.index ["task_id"], name: "index_tcomments_on_task_id", using: :btree
+    t.index ["user_id"], name: "index_tcomments_on_user_id", using: :btree
   end
 
   create_table "teams", force: :cascade do |t|
@@ -51,8 +54,8 @@ ActiveRecord::Schema.define(version: 20170325071905) do
   create_table "teams_users", id: false, force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "team_id", null: false
-    t.index ["team_id", "user_id"], name: "index_teams_users_on_team_id_and_user_id"
-    t.index ["user_id", "team_id"], name: "index_teams_users_on_user_id_and_team_id"
+    t.index ["team_id", "user_id"], name: "index_teams_users_on_team_id_and_user_id", using: :btree
+    t.index ["user_id", "team_id"], name: "index_teams_users_on_user_id_and_team_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,7 +65,11 @@ ActiveRecord::Schema.define(version: 20170325071905) do
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "projects", "teams"
+  add_foreign_key "tasks", "projects"
+  add_foreign_key "tcomments", "tasks"
+  add_foreign_key "tcomments", "users"
 end
