@@ -25,9 +25,12 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @team_id = params[:team_id]
-    if (!Team.where(id: @team_id).first.project.nil?)
-      redirect_to(:back)
+    if (!@team_id.nil?)
+      if (!Team.where(id: @team_id).first.project.nil?)
+        redirect_to(:back)
+      end
     end
+
     @project = Project.new
 
     @read_only = true
