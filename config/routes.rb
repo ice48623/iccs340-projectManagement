@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
   resources :projects
   resources :teams
-  root 'application#hello'
+  root 'sessions#new'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   get '/login',   to: 'sessions#new'
