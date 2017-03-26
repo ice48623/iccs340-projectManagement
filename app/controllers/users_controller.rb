@@ -19,6 +19,9 @@ class UsersController < ApplicationController
   #   end
   # end
 
+  def index
+    redirect_to current_user
+  end
 
   def new
     @user = User.new
