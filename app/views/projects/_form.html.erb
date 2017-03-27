@@ -29,8 +29,8 @@
         </select>
         <input type="hidden" id="team_id" name="team_id"/>
       <% else %>
-        <input type="text" value="<%= @team_id %>", name="team_id", readonly>
-
+        <input type="text" value="<%= @team.name %>", readonly>
+        <input type="hidden" value="<%= @team_id %>", name="team_id">
       <% end %>
     </div>
 
