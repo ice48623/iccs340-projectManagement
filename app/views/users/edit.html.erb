@@ -2,12 +2,11 @@
   <% provide(:title, "Edit user") %>
   <div class="col-md-6 col-md-offset-3">
     <h1>Update your profile</h1>
-    <%= render 'form' %>
-
     <div class="gravatar_edit">
       <%= gravatar_for @user %>
       <a class="btn btn-warning button" href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
     </div>
+    <%= render 'form' %>
   </div>
 
 </div>
