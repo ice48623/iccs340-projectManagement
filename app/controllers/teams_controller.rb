@@ -115,9 +115,9 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:team_id])
     if @team.users.exists?(@user)
       @team.users.delete(@user)
-      if (@team.users.exists? == false)
-        @team.destroy
-      end
+      # if (@team.users.exists? == false)
+      #   @team.destroy
+      # end
       redirect_to teams_path
     end
   end
@@ -142,7 +142,6 @@ class TeamsController < ApplicationController
     def update_team_user
       @team = current_team
       @team_user = @team.users
-
       @team_user.each do |user|
         if (user != current_user)
           @team_user.delete(user)
