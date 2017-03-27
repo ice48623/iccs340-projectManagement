@@ -1,6 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+/*task info*/
+.user_comment {
+  color: #468499;
+  float: left;
+  margin-right: 15px;
+}
+
 /* login page*/
 #to_signUp {
   color: #0070ba;

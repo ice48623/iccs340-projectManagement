@@ -1,10 +1,13 @@
 <div class="panel panel-default">
-  <% @comments.each do |comment| %>
+
     <div class="panel-body">
-      <%= comment.user.name %>:
-      <%= comment.content %>
+      <% @comments.each do |comment| %>
+        <div class="user_comment"> <%= comment.user.name %>: </div>
+        <%= comment.content %>
+        </br>
+      <% end %>
     </div>
-  <% end %>
+
 
 
 </div>
