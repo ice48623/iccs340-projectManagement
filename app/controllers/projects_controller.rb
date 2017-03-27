@@ -25,11 +25,15 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @team_id = params[:team_id]
+
     if (!@team_id.nil?)
+      @team = Team.where(id: @team_id).first
+
       if (!Team.where(id: @team_id).first.project.nil?)
         redirect_to(:back)
       end
     end
+
 
     @project = Project.new
 
@@ -92,7 +96,15 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    @all_tasks = @project.tasks
+    @all_tasks.each do |task|
+      task.tcomments.each do |comment|
+        comment.destroy
+      end
+      task.destroy
+    end
     @project.destroy
+
     respond_to do |format|
       flash[:success] = "Project was successfully destroyed."
       format.html { redirect_to projects_url }
