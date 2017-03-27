@@ -23,10 +23,14 @@
 
     <div class="field">
       <%= f.label :team_id %>
-      <select id="team_select" class="js-tags input-lg form-control">
-        <option></option>
-      </select>
-      <input type="hidden" id="team_id" name="team_id"/>
+      <% if @team_id.nil? %>
+        <select id="team_select" class="js-tags input-lg form-control">
+          <option></option>
+        </select>
+        <input type="hidden" id="team_id" name="team_id"/>
+      <% else %>
+        <%= f.text_area :tead_id, :readonly => true, :value => @team.name %>
+      <% end %>
     </div>
 
     <div class="actions">

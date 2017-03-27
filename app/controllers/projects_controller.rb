@@ -25,7 +25,6 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @team_id = params[:team_id]
-
     if (!@team_id.nil?)
       @team = Team.where(id: @team_id).first
 
@@ -55,6 +54,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @team_id = current_project.team.id
+    @team = Team.where(id: @team_id).first
     @read_only = true
     if @team_id.nil?
       @read_only = false
