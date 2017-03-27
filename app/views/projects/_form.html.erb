@@ -29,7 +29,8 @@
         </select>
         <input type="hidden" id="team_id" name="team_id"/>
       <% else %>
-        <%= f.text_area :tead_id, :readonly => true, :value => @team.name %>
+        <input type="text" value="<%= @team_id %>", name="team_id", readonly>
+
       <% end %>
     </div>
 
