@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## A project management web application for ICCS 340 course.
 
-Things you may want to cover:
+Git Repo: https://github.com/ice48623/iccs340-projectManagement
+Language: Ruby on rails
 
-* Ruby version
+Run:
+* git clone https://github.com/ice48623/iccs340-projectManagement
+* navigates to iccs340-projectManagement directory
 
-* System dependencies
+```
+cd iccs340-projectManagement
+```
 
-* Configuration
+* run "bundle install"
+```
+bundle install
+```
 
-* Database creation
+* start the server
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+rails s
+```
+* open chrome browser and navigates to localhost:3000
