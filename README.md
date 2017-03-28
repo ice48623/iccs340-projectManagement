@@ -5,7 +5,7 @@
 Git Repo: https://github.com/ice48623/iccs340-projectManagement
 Language: Ruby on rails
 
-Run:
+### Run:
 * git clone https://github.com/ice48623/iccs340-projectManagement
 * navigates to iccs340-projectManagement directory
 
@@ -24,3 +24,6 @@ bundle install
 rails s
 ```
 * open chrome browser and navigates to localhost:3000
+
+### UML Diagram
+![alt tag](https://raw.github.com/ice48623/iccs340-projectManagement/blob/master/Diagram.png)
