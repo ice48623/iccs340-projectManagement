@@ -26,4 +26,4 @@ rails s
 * open chrome browser and navigates to localhost:3000
 
 ### UML Diagram
-![alt tag](https://raw.github.com/ice48623/iccs340-projectManagement/blob/master/Diagram.png)
+![alt tag](https://github.com/ice48623/iccs340-projectManagement/blob/master/Diagram.png)
